@@ -14,7 +14,8 @@ defined( 'ABSPATH' ) or exit;
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-add_filter( 'invp_vehicle_attribute_table_items', 'invp_add_down_payment_to_attribute_table', 10, 2 );
+//For templates that ship with the plugin
+add_filter( 'invp_vehicle_attribute_table_items', 'invp_add_down_payment_to_attribute_table' );
 function invp_add_down_payment_to_attribute_table( $labels_and_values )
 {
 	$down_payment = invp_get_the_down_payment();
@@ -27,6 +28,23 @@ function invp_add_down_payment_to_attribute_table( $labels_and_values )
 		'member' => 'down_payment',
 		'label'  => __( 'Down Payment', 'invp-show-down-payment' ),
 		'value'  => $down_payment,
+	);
+
+	return $item + $labels_and_values;
+}
+
+//For the _dealer theme
+add_filter( '_dealer_details_table_labels_and_values', 'invp_add_down_payment_to_dealer_table' );
+function invp_add_down_payment_to_dealer_table( $labels_and_values )
+{
+	$down_payment = invp_get_the_down_payment();
+	if( empty( $down_payment ) )
+	{
+		return $labels_and_values;
+	}
+
+	$item = array(
+		__( 'Down Payment', 'invp-show-down-payment' ) => $down_payment,
 	);
 
 	return $item + $labels_and_values;
