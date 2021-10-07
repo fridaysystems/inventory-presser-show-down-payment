@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) or exit;
  * Plugin Name: Inventory Presser Show Down Payment
  * Plugin URI: https://github.com/fridaysystems/inventory-presser-show-down-payment
  * Description: An add-on for Inventory Presser that adds down payments to the vehicle attributes table.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Corey Salzano
  * Author URI: https://profiles.wordpress.org/salzano
  * Text Domain: invp-show-down-payment
